@@ -3,6 +3,8 @@ import requests
 import time
 
 session = requests.session()
+
+
 def get_pwd(s):
     js_path = "login.js"
     with open(js_path, 'r', encoding='utf-8') as f:
@@ -34,7 +36,7 @@ def login(captcha, pwd):
     }
     data = {
         'sub': 1,
-        'account': 17796416017,
+        'account': 123456,  # 你的邮箱或者手机号
         'pwd': pwd,
         'vcode': captcha,
         'remember': 1,
@@ -47,7 +49,7 @@ def login(captcha, pwd):
 def main():
     code = get_captcha()
     print(code)
-    s = '1054596288a'
+    s = '123456'  # 你的密码
     pwd = get_pwd(s)
     login(code, pwd)
 
